@@ -13,5 +13,6 @@ namespace WpfStrategy
     /// </summary>
     public partial class App : Application
     {
+        public static int Point {get;set;}
     }
 }

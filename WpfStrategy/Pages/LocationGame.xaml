@@ -10,11 +10,11 @@
 
     <Grid Background="Beige">
         <Grid.RowDefinitions>
-            <RowDefinition Height="90*"/>
-            <RowDefinition Height="330*"/>
-            <RowDefinition Height="30*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="340*"/>
+            <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" FontSize="30" Margin="10 0">Локация</TextBlock>
+        <TextBlock Grid.Row="0" FontSize="30" Margin="10 0">Лист характеристик персонажа</TextBlock>
         <StackPanel  Grid.Row="1" HorizontalAlignment="Left">
             <StackPanel Orientation="Horizontal">
                 <TextBlock FontSize="30" Margin="10 0">Ваш персонаж:</TextBlock>
@@ -28,12 +28,87 @@
                 <TextBlock FontSize="30" Margin="10 0">Его уровень:</TextBlock>
                 <TextBlock x:Name="LvlPlayerTB" FontSize="30"></TextBlock>
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="30" Margin="10 0">Очки улучшений:</TextBlock>
+                <TextBlock x:Name="CountyPointTB" FontSize="30"></TextBlock>
         </StackPanel>
-    <Button Grid.Row="2" Width="40" HorizontalAlignment="Left" Margin="10 2" Click="Button_Click_Exit">Назад</Button>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
-            <Button  Width="40" Margin="10 2" Click="Button_Click">-</Button>
-            <TextBlock x:Name="LvlPlTB" Width="30"></TextBlock>
-            <Button  Width="40" Margin="10 2" Click="Button_Click">+</Button>
+            <Image x:Name="ImagePlayer" HorizontalAlignment="Center" VerticalAlignment="Center" Width="180" Height="180" Margin="5"></Image>
+        </StackPanel>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock>Оружие</TextBlock>
+            <ComboBox x:Name="WeaponCB" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem>Wand common</ComboBoxItem>
+                <ComboBoxItem>Wand rare</ComboBoxItem>
+                <ComboBoxItem>Wand legendary</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Width="260" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 0 20 0">
+            <TextBlock FontSize="20" Margin="10 0">Базовые атрибуты:</TextBlock>
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock FontSize="20" Width="110" Margin="10 0">Прочность:</TextBlock>
+                <Button Width="20" x:Name="StrPointMinus" Click="Button_Click_Minus_Points">-</Button>
+                <TextBlock Width="50"  FontSize="20" x:Name="StrTB"></TextBlock>
+                <Button Width="20" x:Name="StrPointPlus" Click="Button_Click_Plus_Points">+</Button>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock FontSize="20" Width="110" Margin="10 0">Ловкость:</TextBlock>
+                <Button Width="20" x:Name="DexPointMinus" Click="Button_Click_Minus_Points">-</Button>
+                <TextBlock Width="50" FontSize="20" x:Name="DexTB"></TextBlock>
+                <Button Width="20" x:Name="DexPointPlus" Click="Button_Click_Plus_Points">+</Button>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock FontSize="20" Width="110" Margin="10 0">Интелект:</TextBlock>
+                <Button Width="20" x:Name="IntPointMinus" Click="Button_Click_Minus_Points">-</Button>
+                <TextBlock Width="50" FontSize="20" x:Name="IntTB"></TextBlock>
+                <Button Width="20" x:Name="IntPointPlus" Click="Button_Click_Plus_Points">+</Button>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock FontSize="20" Width="110" Margin="10 0">Живучесть:</TextBlock>
+                <Button Width="20" x:Name="VitPointMinus" Click="Button_Click_Minus_Points">-</Button>
+                <TextBlock Width="50" FontSize="20" x:Name="VitTB"></TextBlock>
+                <Button Width="20" x:Name="VitPointPlus" Click="Button_Click_Plus_Points">+</Button>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Width="260" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 20 0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="20" Margin="10 0">Статы персонажа:</TextBlock>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock FontSize="20" Margin="10 0">Здоровье:</TextBlock>
+                <TextBlock  FontSize="20" x:Name="HealthTB"></TextBlock>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock FontSize="20" Margin="10 0">Мана:</TextBlock>
+                <TextBlock  FontSize="20" x:Name="ManaTB"></TextBlock>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock FontSize="20" Margin="10 0">Урон:</TextBlock>
+                <TextBlock  FontSize="20" x:Name="DamageTB"></TextBlock>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock FontSize="20" Margin="10 0">Броня:</TextBlock>
+                <TextBlock  FontSize="20" x:Name="ArmorTB"></TextBlock>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock FontSize="20" Margin="10 0">Магическая атака:</TextBlock>
+                <TextBlock  FontSize="20" x:Name="MagicDamageTB"></TextBlock>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock FontSize="20" Margin="10 0">Магическая броня:</TextBlock>
+                <TextBlock  FontSize="20" x:Name="MagicArmorTB"></TextBlock>
+            </StackPanel>
+            
+        </StackPanel>
+        <Button Grid.Row="2" Width="40" HorizontalAlignment="Left" Margin="10 7" Click="Button_Click_Exit">Назад</Button>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Margin="5">
+            <Button  Width="40" Margin="10 2" Click="Button_Click_Minus">-</Button>
+            <TextBlock x:Name="LvlPlTB" Width="30" FontSize="25" Height="40"></TextBlock>
+            <Button  Width="40" Margin="10 2" Click="Button_Click_Plus">+</Button>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock x:Name="LvlPointTB" FontSize="20"></TextBlock>
+            <Button Margin="5" Click="Button_Click_One">500 очков</Button>
+            <Button Margin="5" Click="Button_Click_Ten">1000 очков</Button>
         </StackPanel>
     </Grid>
 </Page>

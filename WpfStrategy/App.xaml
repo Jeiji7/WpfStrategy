@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:WpfStrategy"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="TextColor" TargetType="TextBlock">
+            <!--<Setter Property="Control.FontFamily" Value="Impact"/>-->
+            <Setter Property="Control.Foreground" Value="SpringGreen"/>
+            <Setter Property="Control.FontSize" Value="20"/>
+        </Style>
     </Application.Resources>
 </Application>

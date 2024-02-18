@@ -8,31 +8,34 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainMenu">
 
-    <Grid Background="Bisque">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/FonForMenu.png"></ImageBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="90*"/>
-            <RowDefinition Height="265*"/>
-            <RowDefinition Height="95*"/>
+            <RowDefinition Height="210*"/>
+            <RowDefinition Height="150*"/>
         </Grid.RowDefinitions>
-        <TextBlock FontSize="40" HorizontalAlignment="Center">Добро пожаловать</TextBlock>
+        <TextBlock FontSize="40" FontFamily="Impact" Foreground="SpringGreen" HorizontalAlignment="Center" VerticalAlignment="Center">Добро пожаловать</TextBlock>
         <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Margin="0 0 10 0" FontSize="14" >Введите имя вашего нового пермонажа!</TextBlock>
+            <TextBlock Style="{DynamicResource TextColor}" Margin="0 0 10 0"  >Введите имя вашего нового пермонажа!</TextBlock>
             <TextBox x:Name="NameTB" Width="120" Height="30" Background="Beige" Margin="5"></TextBox>
-            <TextBlock Margin="0 0 10 0" FontSize="14" >Выберите класс вашего персонажа!</TextBlock>
+            <TextBlock Margin="0 0 10 0"  Style="{DynamicResource TextColor}" >Выберите класс вашего персонажа!</TextBlock>
             <ComboBox Width="120" Height="30" x:Name="ClassPlayerCB">
                 <ComboBoxItem>Warrior</ComboBoxItem>
                 <ComboBoxItem>Rogue</ComboBoxItem>
                 <ComboBoxItem>Wizard</ComboBoxItem>
             </ComboBox>
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <StackPanel Grid.Row="2" Grid.RowSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
             <StackPanel Orientation="Vertical" Margin="0 0 10 0">
                 <Button Background="Beige" Width="120" Height="40" Margin="5" Click="Button_Click_Load">Загрузить</Button>
-                <TextBlock>Если у вас уже есть персонаж!</TextBlock>
+                <TextBlock Style="{DynamicResource TextColor}">Если у вас уже есть персонаж!</TextBlock>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="10 0 0 0">
                 <Button Background="Beige" Width="120" Height="40" Margin="5" Click="Button_Click_Create">Создать</Button>
-                <TextBlock>Создать нового!</TextBlock>
+                <TextBlock Style="{DynamicResource TextColor}">Создать нового!</TextBlock>
             </StackPanel>
         </StackPanel>
     </Grid>

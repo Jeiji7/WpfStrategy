@@ -21,11 +21,10 @@ namespace WpfStrategy.Pages
     /// </summary>
     public partial class MainMenu : Page
     {
-        //public Player player;
+        public Player player;
         public MainMenu()
         {
             InitializeComponent();
-
         }
 
         private void Button_Click_Load(object sender, RoutedEventArgs e)
@@ -35,12 +34,38 @@ namespace WpfStrategy.Pages
 
         private void Button_Click_Create(object sender, RoutedEventArgs e)
         {
+            player = new Player(NameTB.Text, ClassPlayerCB.Text, 1, 0,0);
             if (NameTB.Text != "" && ClassPlayerCB.Text != "")
             {
-                Player player = new Player(NameTB.Text, ClassPlayerCB.Text, 0);
-                CRUD.CreateUser(player);
-                MessageBox.Show("Kaif");
-                NavigationService.Navigate(new Pages.LocationGame(player));
+                if (ClassPlayerCB.SelectedIndex == 0)
+                {
+                    player.classification = new Warrior();
+                    player.weapons = new CommonArm(0, "0", "0", 0, 0, 0, 0, 0, 0);
+                    player.Imagers = 0;
+                    CRUD.CreateUser(player);
+                    MessageBox.Show("Kaif");
+                    NavigationService.Navigate(new Pages.LocationGame(player));
+
+                }
+                else if (ClassPlayerCB.SelectedIndex == 1)
+                {
+                    player.classification = new Rogue();
+                    player.weapons = new CommonArm(0, "0", "0", 0, 0, 0, 0, 0, 0);
+                    player.Imagers = 1;
+                    CRUD.CreateUser(player);
+                    MessageBox.Show("Kaif");
+                    NavigationService.Navigate(new Pages.LocationGame(player));
+                }
+                else
+                {
+                    player.classification = new Wizard();
+                    player.weapons = new CommonArm(0, "0", "0", 0, 0, 0, 0, 0, 0);
+                    player.Imagers = 2;
+                    CRUD.CreateUser(player);
+                    MessageBox.Show("Kaif");
+                    NavigationService.Navigate(new Pages.LocationGame(player));
+                }
+
             }
             else
             {

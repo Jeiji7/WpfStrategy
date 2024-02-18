@@ -140,9 +140,16 @@
     <Compile Include="Pages\LocationGame.xaml.cs">
       <DependentUpon>LocationGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Scripts\Arm\CommonArm.cs" />
     <Compile Include="Scripts\CRUD.cs" />
+    <Compile Include="Scripts\Arm\LegendaryArm.cs" />
     <Compile Include="Scripts\Player.cs" />
-    <Compile Include="Scripts\IUnitPlayer.cs" />
+    <Compile Include="Scripts\Players\IUnitPlayer.cs" />
+    <Compile Include="Scripts\Arm\RareArm.cs" />
+    <Compile Include="Scripts\Players\Rogue.cs" />
+    <Compile Include="Scripts\Players\Warrior.cs" />
+    <Compile Include="Scripts\Arm\WeaponsClass.cs" />
+    <Compile Include="Scripts\Players\Wizard.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -207,6 +214,10 @@
     <Analyzer Include="..\packages\AWSSDK.SecurityToken.3.7.100.14\analyzers\dotnet\cs\AWSSDK.SecurityToken.CodeAnalysis.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\FonForMenu.png" />
+    <Resource Include="Images\Warrior.png" />
+    <Resource Include="Images\Rogue.png" />
+    <Resource Include="Images\Wizard.png" />
     <Content Include="mongocrypt.dll" />
   </ItemGroup>
   <ItemGroup>
